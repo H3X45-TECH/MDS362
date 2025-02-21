@@ -104,8 +104,10 @@
             padding-right: 17px; /* Kompensasi untuk scrollbar */
         }
 
-        .menu-item:hover .sub-menu {
-            display: block; /* Tampilkan sub-menu saat dihover */
+        /* Sub-menu tetap terbuka saat dihover */
+        .menu-item:hover .sub-menu,
+        .sub-menu:hover {
+            display: block;
         }
 
         .sub-menu a {
