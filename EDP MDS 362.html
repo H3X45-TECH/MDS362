@@ -94,11 +94,14 @@
             top: 100%; /* Muncul di bawah kotak utama */
             left: 0;
             width: 100%;
+            max-height: 300px; /* Batasi tinggi sub-menu */
+            overflow-y: auto; /* Tambahkan scrollbar jika konten melebihi max-height */
             background-color: #1A1A1A;
             border-radius: 0 0 15px 15px;
             padding: 10px;
             z-index: 1; /* Pastikan sub-menu muncul di atas elemen lain */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+            padding-right: 17px; /* Kompensasi untuk scrollbar */
         }
 
         .menu-item:hover .sub-menu {
@@ -117,21 +120,22 @@
         }
 
         /* Warna bervariasi untuk sub-menu */
-        .sub-menu a:nth-child(1) { background-color: #2C3E50; } /* Biru Tua */
-        .sub-menu a:nth-child(2) { background-color: #34495E; } /* Biru Tua Muda */
-        .sub-menu a:nth-child(3) { background-color: #16A085; } /* Hijau Tosca */
-        .sub-menu a:nth-child(4) { background-color: #27AE60; } /* Hijau */
-        .sub-menu a:nth-child(5) { background-color: #2980B9; } /* Biru */
-        .sub-menu a:nth-child(6) { background-color: #8E44AD; } /* Ungu */
-        .sub-menu a:nth-child(7) { background-color: #2C3E50; } /* Biru Tua */
-        .sub-menu a:nth-child(8) { background-color: #34495E; } /* Biru Tua Muda */
-        .sub-menu a:nth-child(9) { background-color: #16A085; } /* Hijau Tosca */
-        .sub-menu a:nth-child(10) { background-color: #27AE60; } /* Hijau */
-        .sub-menu a:nth-child(11) { background-color: #2980B9; } /* Biru */
-        .sub-menu a:nth-child(12) { background-color: #8E44AD; } /* Ungu */
+        .sub-menu a:nth-child(1) { background-color: #3498DB; } /* Biru */
+        .sub-menu a:nth-child(2) { background-color: #2ECC71; } /* Hijau */
+        .sub-menu a:nth-child(3) { background-color: #9B59B6; } /* Ungu */
+        .sub-menu a:nth-child(4) { background-color: #E67E22; } /* Oranye */
+        .sub-menu a:nth-child(5) { background-color: #E74C3C; } /* Merah */
+        .sub-menu a:nth-child(6) { background-color: #1ABC9C; } /* Hijau Tosca */
+        .sub-menu a:nth-child(7) { background-color: #3498DB; } /* Biru */
+        .sub-menu a:nth-child(8) { background-color: #2ECC71; } /* Hijau */
+        .sub-menu a:nth-child(9) { background-color: #9B59B6; } /* Ungu */
+        .sub-menu a:nth-child(10) { background-color: #E67E22; } /* Oranye */
+        .sub-menu a:nth-child(11) { background-color: #E74C3C; } /* Merah */
+        .sub-menu a:nth-child(12) { background-color: #1ABC9C; } /* Hijau Tosca */
 
         .sub-menu a:hover {
             background-color: #333333; /* Warna hover yang menyatu dengan menu utama */
+            transform: scale(1.02); /* Efek zoom kecil saat hover */
         }
 
         .slogan {
@@ -140,6 +144,22 @@
             font-weight: bold;
             color: #FF0000;
             display: none; /* Sembunyikan slogan awalnya */
+        }
+
+        .logout-btn {
+            display: none; /* Sembunyikan tombol logout awalnya */
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .logout-btn:hover {
+            background-color: #CC0000;
         }
     </style>
 </head>
@@ -311,6 +331,7 @@
             </div>
         </div>
         <div class="slogan" id="slogan">SEMANGAT KOLABORASI, WUJUDKAN TRANSFORMASI, YESSS..... YESSS..... YEESSSS</div>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
     </div>
 
     <script>
@@ -326,6 +347,7 @@
                     document.getElementById('mainPage').style.display = 'block';
                     document.getElementById('menuContainer').style.display = 'grid';
                     document.getElementById('slogan').style.display = 'block';
+                    document.getElementById('logoutBtn').style.display = 'block'; // Tampilkan tombol logout
                 } else {
                     // Jika session sudah kadaluarsa, hapus session
                     localStorage.removeItem('loginTime');
@@ -351,16 +373,17 @@
                 document.getElementById('mainPage').style.display = 'block';
                 document.getElementById('menuContainer').style.display = 'grid';
                 document.getElementById('slogan').style.display = 'block';
+                document.getElementById('logoutBtn').style.display = 'block'; // Tampilkan tombol logout
             } else {
                 alert('ID atau Password salah!');
             }
         });
 
-        // Fungsi untuk logout (opsional)
-        function logout() {
-            localStorage.removeItem('loginTime');
+        // Fungsi untuk logout
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('loginTime'); // Hapus session
             window.location.reload(); // Muat ulang halaman untuk kembali ke login
-        }
+        });
     </script>
 </body>
 </html>
