@@ -6,386 +6,171 @@
     <title>Login - MATAHARI TANJUNG PINANG CITY CENTRE 362</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        /* Reset CSS */
-        body, h1, ul, li, a, form {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Tema Warna */
         body {
-            background-color: #FFFFFF; /* Putih */
-            color: #000000; /* Hitam */
+            background-color: #f4f4f4;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            width: 400px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
-
-        h1 {
-            color: #FF0000; /* Merah */
+        .login-container h2 {
             margin-bottom: 20px;
-            font-size: 2.5em;
         }
-
-        .login-container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #1A1A1A;
-            border-radius: 15px;
-            color: #FFFFFF;
-        }
-
         .login-container input {
-            width: 100%;
-            padding: 10px;
+            width: calc(100% - 20px);
+            padding: 12px;
             margin: 10px 0;
             border-radius: 5px;
-            border: none;
+            border: 1px solid #ccc;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-
         .login-container button {
             width: 100%;
-            padding: 10px;
-            background-color: #FF0000;
-            color: #FFFFFF;
+            padding: 12px;
+            background-color: #FF4500;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-
         .login-container button:hover {
-            background-color: #CC0000;
+            background-color: #E03E00;
         }
-
         .menu-container {
-            max-width: 800px;
-            margin: 20px auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            display: none; /* Sembunyikan menu utama awalnya */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
         }
-
         .menu-item {
-            background-color: #1A1A1A;
-            padding: 20px;
-            border-radius: 15px;
-            transition: background-color 0.3s ease;
-            position: relative; /* Untuk positioning sub-menu */
+            background: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
         }
-
-        .menu-item:hover {
-            background-color: #333333;
-        }
-
-        .menu-item a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-size: 1.2em;
-            display: block;
-        }
-
         .sub-menu {
-            display: none; /* Sembunyikan sub-menu awalnya */
+            display: none;
             position: absolute;
-            top: 100%; /* Muncul di bawah kotak utama */
+            top: 100%;
             left: 0;
             width: 100%;
-            max-height: 300px; /* Batasi tinggi sub-menu */
-            overflow-y: auto; /* Tambahkan scrollbar jika konten melebihi max-height */
-            background-color: #1A1A1A;
-            border-radius: 0 0 15px 15px;
-            padding: 10px;
-            z-index: 1; /* Pastikan sub-menu muncul di atas elemen lain */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
-            padding-right: 17px; /* Kompensasi untuk scrollbar */
+            background: #444;
+            border-radius: 0 0 10px 10px;
+            padding: 10px 0;
+            z-index: 1000;
         }
-
-        /* Sub-menu tetap terbuka saat dihover */
-        .menu-item:hover .sub-menu,
-        .sub-menu:hover {
-            display: block;
-        }
-
         .sub-menu a {
             display: block;
-            padding: 10px;
-            color: #FFFFFF;
+            padding: 8px;
+            color: white;
             text-decoration: none;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-            border-radius: 5px;
-            margin: 5px 0;
         }
-
-        /* Warna bervariasi untuk sub-menu */
-        .sub-menu a:nth-child(1) { background-color: #3498DB; } /* Biru */
-        .sub-menu a:nth-child(2) { background-color: #2ECC71; } /* Hijau */
-        .sub-menu a:nth-child(3) { background-color: #9B59B6; } /* Ungu */
-        .sub-menu a:nth-child(4) { background-color: #E67E22; } /* Oranye */
-        .sub-menu a:nth-child(5) { background-color: #E74C3C; } /* Merah */
-        .sub-menu a:nth-child(6) { background-color: #1ABC9C; } /* Hijau Tosca */
-        .sub-menu a:nth-child(7) { background-color: #3498DB; } /* Biru */
-        .sub-menu a:nth-child(8) { background-color: #2ECC71; } /* Hijau */
-        .sub-menu a:nth-child(9) { background-color: #9B59B6; } /* Ungu */
-        .sub-menu a:nth-child(10) { background-color: #E67E22; } /* Oranye */
-        .sub-menu a:nth-child(11) { background-color: #E74C3C; } /* Merah */
-        .sub-menu a:nth-child(12) { background-color: #1ABC9C; } /* Hijau Tosca */
-
         .sub-menu a:hover {
-            background-color: #333333; /* Warna hover yang menyatu dengan menu utama */
-            transform: scale(1.02); /* Efek zoom kecil saat hover */
+            background: #555;
         }
-
-        .slogan {
-            margin-top: 30px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #FF0000;
-            display: none; /* Sembunyikan slogan awalnya */
-        }
-
         .logout-btn {
-            display: none; /* Sembunyikan tombol logout awalnya */
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #FF0000;
-            color: #FFFFFF;
+            background: #FF4500;
+            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1em;
         }
-
         .logout-btn:hover {
-            background-color: #CC0000;
+            background: #E03E00;
         }
     </style>
 </head>
 <body>
-    <div id="loginPage">
-        <h1>Login</h1>
-        <div class="login-container">
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="ID" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+    <div id="loginPage" class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="ID" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
-
-    <div id="mainPage" style="display: none;">
+    <div id="mainPage" style="display: none; text-align: center;">
         <h1>MATAHARI TANJUNG PINANG CITY CENTRE 362</h1>
-        <div class="menu-container" id="menuContainer">
-            <!-- Kotak 1 -->
-            <div class="menu-item">
-                <a href="#">File Excel 1</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
+        <div class="menu-container">
+            <script>
+                // Data tautan untuk setiap bulan
+                const bulanLinks = {
+                    "Januari": "https://example.com/januari",
+                    "Februari": "https://example.com/februari",
+                    "Maret": "https://example.com/maret",
+                    "April": "https://example.com/april",
+                    "Mei": "https://example.com/mei",
+                    "Juni": "https://example.com/juni",
+                    "Juli": "https://example.com/juli",
+                    "Agustus": "https://example.com/agustus",
+                    "September": "https://example.com/september",
+                    "Oktober": "https://example.com/oktober",
+                    "November": "https://example.com/november",
+                    "Desember": "https://example.com/desember"
+                };
 
-            <!-- Kotak 2 -->
-            <div class="menu-item">
-                <a href="#">File Excel 2</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-
-            <!-- Kotak 3 -->
-            <div class="menu-item">
-                <a href="#">File Excel 3</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-
-            <!-- Kotak 4 -->
-            <div class="menu-item">
-                <a href="#">File Excel 4</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-
-            <!-- Kotak 5 -->
-            <div class="menu-item">
-                <a href="#">File Excel 5</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-
-            <!-- Kotak 6 -->
-            <div class="menu-item">
-                <a href="#">File Excel 6</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-
-            <!-- Kotak 7 -->
-            <div class="menu-item">
-                <a href="#">File Excel 7</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-
-            <!-- Kotak 8 -->
-            <div class="menu-item">
-                <a href="#">File Excel 8</a>
-                <div class="sub-menu">
-                    <a href="#">Januari</a>
-                    <a href="#">Februari</a>
-                    <a href="#">Maret</a>
-                    <a href="#">April</a>
-                    <a href="#">Mei</a>
-                    <a href="#">Juni</a>
-                    <a href="#">Juli</a>
-                    <a href="#">Agustus</a>
-                    <a href="#">September</a>
-                    <a href="#">Oktober</a>
-                    <a href="#">November</a>
-                    <a href="#">Desember</a>
-                </div>
-            </div>
-        </div>
-        <div class="slogan" id="slogan">SEMANGAT KOLABORASI, WUJUDKAN TRANSFORMASI, YESSS..... YESSS..... YEESSSS</div>
-        <button class="logout-btn" id="logoutBtn">Logout</button>
-    </div>
-
-    <script>
-        // Fungsi untuk mengecek session
-        function checkSession() {
-            const loginTime = localStorage.getItem('loginTime');
-            if (loginTime) {
-                const currentTime = new Date().getTime();
-                const sessionDuration = 30 * 60 * 1000; // 30 menit dalam milidetik
-                if (currentTime - loginTime < sessionDuration) {
-                    // Jika session masih valid, langsung tampilkan halaman utama
-                    document.getElementById('loginPage').style.display = 'none';
-                    document.getElementById('mainPage').style.display = 'block';
-                    document.getElementById('menuContainer').style.display = 'grid';
-                    document.getElementById('slogan').style.display = 'block';
-                    document.getElementById('logoutBtn').style.display = 'block'; // Tampilkan tombol logout
-                } else {
-                    // Jika session sudah kadaluarsa, hapus session
-                    localStorage.removeItem('loginTime');
+                for (let i = 1; i <= 8; i++) {
+                    document.write(`
+                        <div class="menu-item" onclick="toggleMenu(this)">Menu ${i}
+                            <div class="sub-menu">
+                                ${Object.entries(bulanLinks).map(([bulan, link]) => `<a href="${link}" target="_blank">${bulan}</a>`).join('')}
+                            </div>
+                        </div>
+                    `);
                 }
+            </script>
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("loggedIn")) {
+                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("mainPage").style.display = "block";
             }
+            document.getElementById("loginForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                if (username === "MDS362P" && password === "362Matahari!") {
+                    localStorage.setItem("loggedIn", "true");
+                    document.getElementById("loginPage").style.display = "none";
+                    document.getElementById("mainPage").style.display = "block";
+                } else {
+                    alert("Login gagal. Cek kembali ID dan Password.");
+                }
+            });
+        });
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            location.reload();
         }
-
-        // Cek session saat halaman dimuat
-        checkSession();
-
-        // Fungsi untuk handle login
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (username === 'M362P' && password === '362Matahari') {
-                // Simpan waktu login ke localStorage
-                localStorage.setItem('loginTime', new Date().getTime());
-
-                // Tampilkan halaman utama
-                document.getElementById('loginPage').style.display = 'none';
-                document.getElementById('mainPage').style.display = 'block';
-                document.getElementById('menuContainer').style.display = 'grid';
-                document.getElementById('slogan').style.display = 'block';
-                document.getElementById('logoutBtn').style.display = 'block'; // Tampilkan tombol logout
-            } else {
-                alert('ID atau Password salah!');
-            }
-        });
-
-        // Fungsi untuk logout
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            localStorage.removeItem('loginTime'); // Hapus session
-            window.location.reload(); // Muat ulang halaman untuk kembali ke login
-        });
+        function toggleMenu(menu) {
+            document.querySelectorAll(".menu-item .sub-menu").forEach(sub => {
+                if (sub.parentElement !== menu) sub.style.display = "none";
+            });
+            let subMenu = menu.querySelector(".sub-menu");
+            subMenu.style.display = subMenu.style.display === "block" ? "none" : "block";
+        }
     </script>
 </body>
 </html>
