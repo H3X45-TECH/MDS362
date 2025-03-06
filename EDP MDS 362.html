@@ -14,26 +14,41 @@
             margin: 0;
             padding: 20px;
         }
-        h1 {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .login-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
-            font-size: 30px;
-            font-weight: bold;
-            margin: 0 auto;
+        }
+        .login-box input {
+            width: 100%;
             padding: 10px;
-            max-width: 90%;
-            text-decoration: underline;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-box button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
         .menu-container {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
             margin-top: 30px;
-            position: relative;
-            z-index: 1;
         }
         .menu-item {
             background: linear-gradient(135deg, #007bff, #0056b3);
@@ -43,16 +58,10 @@
             width: 200px;
             text-align: center;
             cursor: pointer;
-            position: relative;
             font-size: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            z-index: 5;
-        }
-        .menu-item:hover {
-            filter: brightness(1.2);
         }
         .sub-menu {
             display: none;
@@ -62,29 +71,16 @@
             transform: translate(-50%, -50%);
             width: 80%;
             max-width: 300px;
-            max-height: 80vh;
-            overflow-y: auto;
             background: rgba(0, 0, 0, 0.95);
             border-radius: 10px;
             padding: 20px;
-            z-index: 9999;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             color: white;
+            z-index: 9999;
         }
         .sub-menu h2 {
             margin-top: 0;
             font-size: 18px;
             text-align: center;
-        }
-        .sub-menu a {
-            display: block;
-            padding: 8px;
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .sub-menu a:hover {
-            background: #333;
         }
         .close-menu {
             position: absolute;
@@ -96,202 +92,71 @@
         }
     </style>
 </head>
-<body onclick="closeMenuOutside(event)">
-    <h1>MATAHARI 362 TANJUNGPINANG CITY CENTRE</h1>
-
-    <h3>INTERNAL REPORT</h3>
-    <div class="menu-container">
-    <div class="menu-item" onclick="openMenu(event, 'paretoMenu', 'Pareto by World')"><i class="fas fa-chart-pie"></i>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Sumbu X dan Y -->
-    <line x1="3" y1="20" x2="21" y2="20" stroke="white" stroke-width="1"/>
-    <line x1="3" y1="20" x2="3" y2="4" stroke="white" stroke-width="1"/>
-    
-    <!-- Batang Chart -->
-    <rect x="5" y="14" width="3" height="6" fill="white" stroke="white" stroke-width="1"/>
-    <rect x="10" y="10" width="3" height="10" fill="white" stroke="white" stroke-width="1"/>
-    <rect x="15" y="12" width="3" height="8" fill="white" stroke="white" stroke-width="1"/>
-
-    <!-- Panah di atas chart -->
-    <polyline points="4,6 9,4 14,6 19,3" fill="none" stroke="white" stroke-width="1"/>
-    <polygon points="18,0 21,3 18,6" fill="white" stroke="white" stroke-width="1"/>
-</svg>
-Pareto by World
-            <div class="paretoMenu">
-                <a href="#">Januari</a>
-                <a href="#">Februari</a>
-                <a href="#">Maret</a>
-		<a href="#">April</a>
-		<a href="#">Mei</a>
-		<a href="#">Juni</a>
-		<a href="#">Juli</a>
-		<a href="#">Agustus</a>
-		<a href="#">September</a>
-		<a href="#">Oktober</a>
-		<a href="#">November</a>
-		<a href="#">Desember</a>
-            </div>
+<body>
+    <div class="login-container" id="loginPage">
+        <div class="login-box">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="error" style="color: red; display: none;">Username atau password salah!</p>
         </div>
-        <div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-tags"></i>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Atap Stand -->
-    <rect x="3" y="3" width="18" height="2" fill="white" stroke="black" stroke-width="0.5"/>
-    <polygon points="3,5 6,8 18,8 21,5" fill="white" stroke="black" stroke-width="0.5"/>
-
-    <!-- Badan Stand -->
-    <rect x="6" y="8" width="12" height="7" fill="white" stroke="black" stroke-width="0.5"/>
-
-    <!-- Meja -->
-    <rect x="4.5" y="15" width="15" height="2" fill="white" stroke="black" stroke-width="0.5"/>
-
-    <!-- Tiang Stand -->
-    <rect x="5" y="8" width="1" height="7" fill="white" stroke="black" stroke-width="0.5"/>
-    <rect x="18" y="8" width="1" height="7" fill="white" stroke="black" stroke-width="0.5"/>
-
-    <!-- Barang di Meja (Bentuk Buah) -->
-    <circle cx="9" cy="14.5" r="1" fill="gray" stroke="black" stroke-width="0.2"/>
-    <circle cx="12" cy="14.5" r="1" fill="gray" stroke="black" stroke-width="0.2"/>
-    <circle cx="15" cy="14.5" r="1" fill="gray" stroke="black" stroke-width="0.2"/>
-</svg>
-Bazzar by Brand
-            <div class="sub-menu">
-                <a href="#">Januari</a>
-                <a href="#">Februari</a>
-                <a href="#">Maret</a>
-		<a href="#">April</a>
-		<a href="#">Mei</a>
-		<a href="#">Juni</a>
-		<a href="#">Juli</a>
-		<a href="#">Agustus</a>
-		<a href="#">September</a>
-		<a href="#">Oktober</a>
-		<a href="#">November</a>
-		<a href="#">Desember</a>
-            </div>
-        </div>
-        <div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-user"></i>
-		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        		<circle cx="12" cy="7" r="4" stroke="white" stroke-width="2" fill="none"/>
-        		<path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21" stroke="white" stroke-width="2" fill="none"/>
-    		</svg>
-		Sales Person
-            <div class="sub-menu">
-                <a href="#">Januari</a>
-                <a href="#">Februari</a>
-                <a href="#">Maret</a>
-		<a href="#">April</a>
-		<a href="#">Mei</a>
-		<a href="#">Juni</a>
-		<a href="#">Juli</a>
-		<a href="#">Agustus</a>
-		<a href="#">September</a>
-		<a href="#">Oktober</a>
-		<a href="#">November</a>
-		<a href="#">Desember</a>
-            </div>
-        </div>
-<div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-user"></i>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Garis Aktivitas -->
-    <polyline points="3,12 7,12 9,6 13,18 15,12 19,12" 
-        fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    
-    <!-- Sumbu X -->
-    <line x1="2" y1="20" x2="22" y2="20" stroke="white" stroke-width="2"/>
-</svg>
-		Unusual Activity
-            <div class="sub-menu">
-                <a href="#">Januari</a>
-                <a href="#">Februari</a>
-                <a href="#">Maret</a>
-		<a href="#">April</a>
-		<a href="#">Mei</a>
-		<a href="#">Juni</a>
-		<a href="#">Juli</a>
-		<a href="#">Agustus</a>
-		<a href="#">September</a>
-		<a href="#">Oktober</a>
-		<a href="#">November</a>
-		<a href="#">Desember</a>
-            </div>
-        </div>
-
-<div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-user"></i>
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Layar Monitor -->
-    <rect x="3" y="4" width="18" height="12" stroke="white" stroke-width="2" fill="none" rx="2"/>
-    
-    <!-- Garis Grafik dalam Monitor -->
-    <polyline points="5,10 8,8 11,12 14,6 17,9 19,7" 
-        fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-
-    <!-- Kaki Monitor -->
-    <line x1="12" y1="16" x2="12" y2="20" stroke="white" stroke-width="2"/>
-    <line x1="8" y1="20" x2="16" y2="20" stroke="white" stroke-width="2"/>
-</svg>
-		Monitoring
-            <div class="sub-menu">
-                <a href="#">Januari</a>
-                <a href="#">Februari</a>
-                <a href="#">Maret</a>
-		<a href="#">April</a>
-		<a href="#">Mei</a>
-		<a href="#">Juni</a>
-		<a href="#">Juli</a>
-		<a href="#">Agustus</a>
-		<a href="#">September</a>
-		<a href="#">Oktober</a>
-		<a href="#">November</a>
-		<a href="#">Desember</a>
-            </div>
-        </div>
-
     </div>
     
-    <h3 style="padding-top: 50px;">External Links</h3>
-    <div class="menu-container" style="z-index: 0;">
-        <div class="menu-item"><a href="https://google.com" style="color:white; text-decoration:none;"><i class="fas fa-search"></i>Store Performance</a></div>
-        <div class="menu-item"><a href="https://facebook.com" style="color:white; text-decoration:none;"><i class="fab fa-facebook"></i>Hourly Sales</a></div>
-        <div class="menu-item"><a href="https://linkedin.com" style="color:white; text-decoration:none;"><i class="fab fa-linkedin"></i>49D</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i>Sales Chanel/Table</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+    <div id="mainPage" style="display: none;">
+        <h1>MATAHARI 362 TANJUNGPINANG CITY CENTRE</h1>
+        <h3>INTERNAL REPORT</h3>
+        <button onclick="logout()" style="margin-bottom: 20px;">Logout</button>
+        <div class="menu-container">
+            <div class="menu-item" onclick="openMenu(event, 'paretoMenu', 'Pareto by World')">Pareto by World</div>
+            <div class="menu-item" onclick="openMenu(event, 'bazzarMenu', 'Bazzar by Brand')">Bazzar by Brand</div>
+            <div class="menu-item" onclick="openMenu(event, 'salesMenu', 'Sales Person')">Sales Person</div>
+        </div>
     </div>
-
+    
+    <div id="subMenu" class="sub-menu" onclick="event.stopPropagation()">
+        <span class="close-menu" onclick="closeMenu()">&times;</span>
+        <h2 id="menuTitle"></h2>
+        <a href="#">Januari</a>
+        <a href="#">Februari</a>
+        <a href="#">Maret</a>
+    </div>
+    
     <script>
-        <script>
-    function toggleMenu(element) {
-        let subMenu = element.querySelector(".sub-menu");
-        let allSubMenus = document.querySelectorAll(".sub-menu");
-
-        // Tutup semua sub-menu lainnya sebelum membuka yang baru
-        allSubMenus.forEach(menu => {
-            if (menu !== subMenu) {
-                menu.style.display = "none";
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username === "MDS362P" && password === "362Matahar!") {
+                document.getElementById("loginPage").style.display = "none";
+                document.getElementById("mainPage").style.display = "block";
+                localStorage.setItem("loggedIn", true);
+                setTimeout(logout, 30 * 60 * 1000);
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        }
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            document.getElementById("mainPage").style.display = "none";
+            document.getElementById("loginPage").style.display = "flex";
+        }
+        if (localStorage.getItem("loggedIn")) {
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("mainPage").style.display = "block";
+            setTimeout(logout, 30 * 60 * 1000);
+        }
+        function openMenu(event, menuId, title) {
+            document.getElementById("menuTitle").innerText = title;
+            document.getElementById("subMenu").style.display = "block";
+        }
+        function closeMenu() {
+            document.getElementById("subMenu").style.display = "none";
+        }
+        document.body.addEventListener("click", function(event) {
+            if (!document.getElementById("subMenu").contains(event.target)) {
+                closeMenu();
             }
         });
-
-        // Tampilkan atau sembunyikan sub-menu yang diklik
-        if (subMenu.style.display === "block") {
-            subMenu.style.display = "none";
-        } else {
-            subMenu.style.display = "block";
-        }
-    }
-
-    function closeMenuOutside(event) {
-        if (!event.target.closest(".menu-item")) {
-            document.querySelectorAll(".sub-menu").forEach(menu => {
-                menu.style.display = "none";
-            });
-        }
-    }
-</script>
-
     </script>
 </body>
 </html>
