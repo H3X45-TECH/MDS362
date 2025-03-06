@@ -263,21 +263,35 @@ Bazzar by Brand
     </div>
 
     <script>
-        function openMenu(event, id, title) {
-            event.stopPropagation();
-            document.querySelectorAll(".sub-menu").forEach(menu => menu.style.display = "none");
-            let menu = document.getElementById(id);
-            menu.style.display = "block";
-            menu.querySelector("h2").innerText = title;
-        }
-        function closeMenu(id) {
-            document.getElementById(id).style.display = "none";
-        }
-        function closeMenuOutside(event) {
-            if (!event.target.closest(".sub-menu") && !event.target.closest(".menu-item")) {
-                document.querySelectorAll(".sub-menu").forEach(menu => menu.style.display = "none");
+        <script>
+    function toggleMenu(element) {
+        let subMenu = element.querySelector(".sub-menu");
+        let allSubMenus = document.querySelectorAll(".sub-menu");
+
+        // Tutup semua sub-menu lainnya sebelum membuka yang baru
+        allSubMenus.forEach(menu => {
+            if (menu !== subMenu) {
+                menu.style.display = "none";
             }
+        });
+
+        // Tampilkan atau sembunyikan sub-menu yang diklik
+        if (subMenu.style.display === "block") {
+            subMenu.style.display = "none";
+        } else {
+            subMenu.style.display = "block";
         }
+    }
+
+    function closeMenuOutside(event) {
+        if (!event.target.closest(".menu-item")) {
+            document.querySelectorAll(".sub-menu").forEach(menu => {
+                menu.style.display = "none";
+            });
+        }
+    }
+</script>
+
     </script>
 </body>
 </html>
