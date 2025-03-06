@@ -44,7 +44,7 @@
             cursor: pointer;
         }
         .menu-container {
-            display: none;
+            display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
@@ -107,7 +107,7 @@
         <h1>MATAHARI 362 TANJUNGPINANG CITY CENTRE</h1>
         <h3>INTERNAL REPORT</h3>
         <button onclick="logout()" style="margin-bottom: 20px;">Logout</button>
-        <div class="menu-container">
+        <div class="menu-container" id="menuContainer">
             <div class="menu-item" onclick="openMenu(event, 'paretoMenu', 'Pareto by World')">Pareto by World</div>
             <div class="menu-item" onclick="openMenu(event, 'bazzarMenu', 'Bazzar by Brand')">Bazzar by Brand</div>
             <div class="menu-item" onclick="openMenu(event, 'salesMenu', 'Sales Person')">Sales Person</div>
@@ -129,6 +129,7 @@
             if (username === "MDS362P" && password === "362Matahar!") {
                 document.getElementById("loginPage").style.display = "none";
                 document.getElementById("mainPage").style.display = "block";
+                document.getElementById("menuContainer").style.display = "flex";
                 localStorage.setItem("loggedIn", true);
                 setTimeout(logout, 30 * 60 * 1000);
             } else {
@@ -143,6 +144,7 @@
         if (localStorage.getItem("loggedIn")) {
             document.getElementById("loginPage").style.display = "none";
             document.getElementById("mainPage").style.display = "block";
+            document.getElementById("menuContainer").style.display = "flex";
             setTimeout(logout, 30 * 60 * 1000);
         }
         function openMenu(event, menuId, title) {
