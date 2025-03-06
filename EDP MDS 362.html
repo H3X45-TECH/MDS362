@@ -1,52 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://storage.googleapis.com/storage-ajaib-prd-platform-wp-artifact/2020/05/LPPF.jpg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MATAHARI TANJUNG PINANG CITY CENTRE 362</title>
+    <title>MDS 362 TCC</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: #f4f4f4;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-container {
-            width: 400px;
-            padding: 30px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            background-color: #f4f4f4;
             text-align: center;
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-        .login-container input {
-            width: calc(100% - 20px);
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 12px;
-            background-color: #FF4500;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background-color: #E03E00;
+            margin: 0px;
+            padding: 20px;
         }
         .menu-container {
             display: flex;
@@ -54,9 +20,11 @@
             justify-content: center;
             gap: 15px;
             margin-top: 30px;
+            position: relative;
+            z-index: 1;
         }
         .menu-item {
-            background: #333;
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
             padding: 15px;
             border-radius: 10px;
@@ -64,6 +32,15 @@
             text-align: center;
             cursor: pointer;
             position: relative;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            z-index: 2;
+        }
+        .menu-item:hover {
+            filter: brightness(1.2);
         }
         .sub-menu {
             display: none;
@@ -71,7 +48,7 @@
             top: 100%;
             left: 0;
             width: 100%;
-            background: #444;
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 0 0 10px 10px;
             padding: 10px 0;
             z-index: 1000;
@@ -81,89 +58,199 @@
             padding: 8px;
             color: white;
             text-decoration: none;
+            font-size: 14px;
         }
         .sub-menu a:hover {
-            background: #555;
+            background: #333;
         }
-        .logout-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #FF4500;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .logout-btn:hover {
-            background: #E03E00;
+        i {
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
-    <div id="loginPage" class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="ID" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-    <div id="mainPage" style="display: none; text-align: center;">
-        <h1>MATAHARI TANJUNG PINANG CITY CENTRE 362</h1>
-        <div class="menu-container">
-            <script>
-                // Data tautan untuk setiap bulan
-                const bulanLinks = {
-                    "Januari": "https://youtube.com",
-                    "Februari": "https://example.com/februari",
-                    "Maret": "https://example.com/maret",
-                    "April": "https://example.com/april",
-                    "Mei": "https://example.com/mei",
-                    "Juni": "https://example.com/juni",
-                    "Juli": "https://example.com/juli",
-                    "Agustus": "https://example.com/agustus",
-                    "September": "https://example.com/september",
-                    "Oktober": "https://example.com/oktober",
-                    "November": "https://example.com/november",
-                    "Desember": "https://example.com/desember"
-                };
+    <h1 style="
+    width: 800px;
+    margin-left: 250px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    align: center;
+    text-decoration: underline;
+    
+">
+        MATAHARI 362 TANJUNGPINANG CITY CENTRE
+    </h1>
 
-                for (let i = 1; i <= 8; i++) {
-                    document.write(`
-                        <div class="menu-item" onclick="toggleMenu(this)">Menu ${i}
-                            <div class="sub-menu">
-                                ${Object.entries(bulanLinks).map(([bulan, link]) => `<a href="${link}" target="_blank">${bulan}</a>`).join('')}
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
+    <h3>INTERNAL REPORT</h3>
+    <div class="menu-container">
+        <div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-chart-pie"></i>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Sumbu X dan Y -->
+    <line x1="3" y1="20" x2="21" y2="20" stroke="white" stroke-width="1"/>
+    <line x1="3" y1="20" x2="3" y2="4" stroke="white" stroke-width="1"/>
+    
+    <!-- Batang Chart -->
+    <rect x="5" y="14" width="3" height="6" fill="white" stroke="white" stroke-width="1"/>
+    <rect x="10" y="10" width="3" height="10" fill="white" stroke="white" stroke-width="1"/>
+    <rect x="15" y="12" width="3" height="8" fill="white" stroke="white" stroke-width="1"/>
+
+    <!-- Panah di atas chart -->
+    <polyline points="4,6 9,4 14,6 19,3" fill="none" stroke="white" stroke-width="1"/>
+    <polygon points="18,0 21,3 18,6" fill="white" stroke="white" stroke-width="1"/>
+</svg>
+Pareto by World
+            <div class="sub-menu">
+                <a href="#">Januari</a>
+                <a href="#">Februari</a>
+                <a href="#">Maret</a>
+		<a href="#">April</a>
+		<a href="#">Mei</a>
+		<a href="#">Juni</a>
+		<a href="#">Juli</a>
+		<a href="#">Agustus</a>
+		<a href="#">September</a>
+		<a href="#">Oktober</a>
+		<a href="#">November</a>
+		<a href="#">Desember</a>
+            </div>
         </div>
-        <button class="logout-btn" onclick="logout()">Logout</button>
+        <div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-tags"></i>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Atap Stand -->
+    <rect x="3" y="3" width="18" height="2" fill="white" stroke="black" stroke-width="0.5"/>
+    <polygon points="3,5 6,8 18,8 21,5" fill="white" stroke="black" stroke-width="0.5"/>
+
+    <!-- Badan Stand -->
+    <rect x="6" y="8" width="12" height="7" fill="white" stroke="black" stroke-width="0.5"/>
+
+    <!-- Meja -->
+    <rect x="4.5" y="15" width="15" height="2" fill="white" stroke="black" stroke-width="0.5"/>
+
+    <!-- Tiang Stand -->
+    <rect x="5" y="8" width="1" height="7" fill="white" stroke="black" stroke-width="0.5"/>
+    <rect x="18" y="8" width="1" height="7" fill="white" stroke="black" stroke-width="0.5"/>
+
+    <!-- Barang di Meja (Bentuk Buah) -->
+    <circle cx="9" cy="14.5" r="1" fill="gray" stroke="black" stroke-width="0.2"/>
+    <circle cx="12" cy="14.5" r="1" fill="gray" stroke="black" stroke-width="0.2"/>
+    <circle cx="15" cy="14.5" r="1" fill="gray" stroke="black" stroke-width="0.2"/>
+</svg>
+Bazzar by Brand
+            <div class="sub-menu">
+                <a href="#">Januari</a>
+                <a href="#">Februari</a>
+                <a href="#">Maret</a>
+		<a href="#">April</a>
+		<a href="#">Mei</a>
+		<a href="#">Juni</a>
+		<a href="#">Juli</a>
+		<a href="#">Agustus</a>
+		<a href="#">September</a>
+		<a href="#">Oktober</a>
+		<a href="#">November</a>
+		<a href="#">Desember</a>
+            </div>
+        </div>
+        <div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-user"></i>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        		<circle cx="12" cy="7" r="4" stroke="white" stroke-width="2" fill="none"/>
+        		<path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21" stroke="white" stroke-width="2" fill="none"/>
+    		</svg>
+		Sales Person
+            <div class="sub-menu">
+                <a href="#">Januari</a>
+                <a href="#">Februari</a>
+                <a href="#">Maret</a>
+		<a href="#">April</a>
+		<a href="#">Mei</a>
+		<a href="#">Juni</a>
+		<a href="#">Juli</a>
+		<a href="#">Agustus</a>
+		<a href="#">September</a>
+		<a href="#">Oktober</a>
+		<a href="#">November</a>
+		<a href="#">Desember</a>
+            </div>
+        </div>
+<div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-user"></i>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Garis Aktivitas -->
+    <polyline points="3,12 7,12 9,6 13,18 15,12 19,12" 
+        fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Sumbu X -->
+    <line x1="2" y1="20" x2="22" y2="20" stroke="white" stroke-width="2"/>
+</svg>
+		Unusual Activity
+            <div class="sub-menu">
+                <a href="#">Januari</a>
+                <a href="#">Februari</a>
+                <a href="#">Maret</a>
+		<a href="#">April</a>
+		<a href="#">Mei</a>
+		<a href="#">Juni</a>
+		<a href="#">Juli</a>
+		<a href="#">Agustus</a>
+		<a href="#">September</a>
+		<a href="#">Oktober</a>
+		<a href="#">November</a>
+		<a href="#">Desember</a>
+            </div>
+        </div>
+
+<div class="menu-item" onclick="toggleMenu(this)"><i class="fas fa-user"></i>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Layar Monitor -->
+    <rect x="3" y="4" width="18" height="12" stroke="white" stroke-width="2" fill="none" rx="2"/>
+    
+    <!-- Garis Grafik dalam Monitor -->
+    <polyline points="5,10 8,8 11,12 14,6 17,9 19,7" 
+        fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Kaki Monitor -->
+    <line x1="12" y1="16" x2="12" y2="20" stroke="white" stroke-width="2"/>
+    <line x1="8" y1="20" x2="16" y2="20" stroke="white" stroke-width="2"/>
+</svg>
+		Monitoring
+            <div class="sub-menu">
+                <a href="#">Januari</a>
+                <a href="#">Februari</a>
+                <a href="#">Maret</a>
+		<a href="#">April</a>
+		<a href="#">Mei</a>
+		<a href="#">Juni</a>
+		<a href="#">Juli</a>
+		<a href="#">Agustus</a>
+		<a href="#">September</a>
+		<a href="#">Oktober</a>
+		<a href="#">November</a>
+		<a href="#">Desember</a>
+            </div>
+        </div>
+
     </div>
+    
+    <h3 style="padding-top: 50px;">External Links</h3>
+    <div class="menu-container" style="z-index: 0;">
+        <div class="menu-item"><a href="https://google.com" style="color:white; text-decoration:none;"><i class="fas fa-search"></i>Store Performance</a></div>
+        <div class="menu-item"><a href="https://facebook.com" style="color:white; text-decoration:none;"><i class="fab fa-facebook"></i>Hourly Sales</a></div>
+        <div class="menu-item"><a href="https://linkedin.com" style="color:white; text-decoration:none;"><i class="fab fa-linkedin"></i>49D</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i>Sales Chanel/Table</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+    </div>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            if (localStorage.getItem("loggedIn")) {
-                document.getElementById("loginPage").style.display = "none";
-                document.getElementById("mainPage").style.display = "block";
-            }
-            document.getElementById("loginForm").addEventListener("submit", function (e) {
-                e.preventDefault();
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
-                if (username === "MDS362P" && password === "362Matahari!") {
-                    localStorage.setItem("loggedIn", "true");
-                    document.getElementById("loginPage").style.display = "none";
-                    document.getElementById("mainPage").style.display = "block";
-                } else {
-                    alert("Login gagal. Cek kembali ID dan Password.");
-                }
-            });
-        });
-        function logout() {
-            localStorage.removeItem("loggedIn");
-            location.reload();
-        }
         function toggleMenu(menu) {
             document.querySelectorAll(".menu-item .sub-menu").forEach(sub => {
                 if (sub.parentElement !== menu) sub.style.display = "none";
