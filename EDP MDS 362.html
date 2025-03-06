@@ -7,6 +7,16 @@
     <title>MDS 362 TCC</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
+        @media (max-width: 768px) {
+    .sub-menu {
+        position: fixed;
+        top: 50px; /* Sesuaikan */
+        left: 10%;
+        right: 10%;
+        width: 80%;
+        z-index: 9999;
+    }
+}
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -53,7 +63,7 @@
     	background: rgba(0, 0, 0, 0.9);
     	border-radius: 0 0 10px 10px;
     	padding: 10px 0;
-    	z-index: 100; /* Pastikan lebih tinggi dari menu-item lainnya */
+    	z-index: 999; /* Pastikan lebih tinggi dari menu-item lainnya */
 }
         .sub-menu a {
             display: block;
