@@ -163,7 +163,7 @@
     		</svg>
             
                 Sales Person</div>
-            <div class="menu-item" onclick="openMenu(event, 'Sales Person')">
+            <div class="menu-item" onclick="openMenu(event, 'Unusual Activity')">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Garis Aktivitas -->
     <polyline points="3,12 7,12 9,6 13,18 15,12 19,12" 
@@ -174,7 +174,7 @@
 </svg>
                 
                 Unusual Activity</div>
-            <div class="menu-item" onclick="openMenu(event, 'Sales Person')">
+            <div class="menu-item" onclick="openMenu(event, 'Monitoring')">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Layar Monitor -->
     <rect x="3" y="4" width="18" height="12" stroke="white" stroke-width="2" fill="none" rx="2"/>
@@ -238,6 +238,12 @@
                 document.getElementById("submenuLink1").href = "https://www.google.com";
             } else if (title === "Bazzar by Brand") {
                 document.getElementById("submenuLink1").href = "https://www.facebook.com";
+            } else if (title === "Sales Person") {
+                document.getElementById("submenuLink1").href = "https://www.twitter.com";
+            } else if (title === "Unusual Activity") {
+                document.getElementById("submenuLink1").href = "https://www.bing.com";
+            } else if (title === "Monitoring") {
+                document.getElementById("submenuLink1").href = "https://www.samehadaku.com";
             }
             document.getElementById("subMenu").style.display = "block";
         }
