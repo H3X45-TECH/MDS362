@@ -38,22 +38,22 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            z-index: 3;
+            z-index: 5;
         }
         .menu-item:hover {
             filter: brightness(1.2);
         }
-    .sub-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: max-content; /* Agar tidak mengikuti lebar menu utama */
-    min-width: 100%; /* Supaya tetap proporsional */
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 0 0 10px 10px;
-    padding: 10px 0;
-    z-index: 50; /* Pastikan lebih tinggi dari menu-item lainnya */
+    	.sub-menu {
+    	display: none;
+    	position: absolute;
+    	top: 100%;
+    	left: 0;
+    	width: max-content; /* Agar tidak mengikuti lebar menu utama */
+    	min-width: 100%; /* Supaya tetap proporsional */
+    	background: rgba(0, 0, 0, 0.9);
+    	border-radius: 0 0 10px 10px;
+    	padding: 10px 0;
+    	z-index: 100; /* Pastikan lebih tinggi dari menu-item lainnya */
 }
         .sub-menu a {
             display: block;
