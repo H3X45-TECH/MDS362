@@ -66,9 +66,15 @@
             overflow-y: auto;
             background: rgba(0, 0, 0, 0.95);
             border-radius: 10px;
-            padding: 10px;
+            padding: 20px;
             z-index: 9999;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        .sub-menu h2 {
+            margin-top: 0;
+            font-size: 18px;
+            text-align: center;
         }
         .sub-menu a {
             display: block;
@@ -90,48 +96,59 @@
         }
     </style>
 </head>
-<body>
+<body onclick="closeMenuOutside(event)">
     <h1>MATAHARI 362 TANJUNGPINANG CITY CENTRE</h1>
 
     <h3>INTERNAL REPORT</h3>
     <div class="menu-container">
-        <div class="menu-item" onclick="openMenu('paretoMenu')">
+        <div class="menu-item" onclick="openMenu(event, 'paretoMenu', 'Pareto by World')">
             Pareto by World
         </div>
-        <div class="menu-item" onclick="openMenu('bazzarMenu')">
+        <div class="menu-item" onclick="openMenu(event, 'bazzarMenu', 'Bazzar by Brand')">
             Bazzar by Brand
         </div>
-        <div class="menu-item" onclick="openMenu('salesMenu')">
+        <div class="menu-item" onclick="openMenu(event, 'salesMenu', 'Sales Person')">
             Sales Person
         </div>
     </div>
 
     <div id="paretoMenu" class="sub-menu">
         <span class="close-menu" onclick="closeMenu('paretoMenu')">&times;</span>
+        <h2>Pareto by World</h2>
         <a href="#">Januari</a>
         <a href="#">Februari</a>
         <a href="#">Maret</a>
     </div>
     <div id="bazzarMenu" class="sub-menu">
         <span class="close-menu" onclick="closeMenu('bazzarMenu')">&times;</span>
+        <h2>Bazzar by Brand</h2>
         <a href="#">Januari</a>
         <a href="#">Februari</a>
         <a href="#">Maret</a>
     </div>
     <div id="salesMenu" class="sub-menu">
         <span class="close-menu" onclick="closeMenu('salesMenu')">&times;</span>
+        <h2>Sales Person</h2>
         <a href="#">Januari</a>
         <a href="#">Februari</a>
         <a href="#">Maret</a>
     </div>
 
     <script>
-        function openMenu(id) {
+        function openMenu(event, id, title) {
+            event.stopPropagation();
             document.querySelectorAll(".sub-menu").forEach(menu => menu.style.display = "none");
-            document.getElementById(id).style.display = "block";
+            let menu = document.getElementById(id);
+            menu.style.display = "block";
+            menu.querySelector("h2").innerText = title;
         }
         function closeMenu(id) {
             document.getElementById(id).style.display = "none";
+        }
+        function closeMenuOutside(event) {
+            if (!event.target.closest(".sub-menu") && !event.target.closest(".menu-item")) {
+                document.querySelectorAll(".sub-menu").forEach(menu => menu.style.display = "none");
+            }
         }
     </script>
 </body>
