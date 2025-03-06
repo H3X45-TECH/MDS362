@@ -127,9 +127,9 @@
     <div id="subMenu" class="sub-menu">
         <span class="close-menu" onclick="closeMenu()">&times;</span>
         <h2 id="menuTitle"></h2>
-        <a href="#">Januari</a>
-        <a href="#">Februari</a>
-        <a href="#">Maret</a>
+        <a id="submenuLink1" href="#">Januari</a>
+        <a id="submenuLink2" href="#">Februari</a>
+        <a id="submenuLink3" href="#">Maret</a>
     </div>
     
     <script>
@@ -157,6 +157,11 @@
         }
         function openMenu(event, title) {
             document.getElementById("menuTitle").innerText = title;
+            if (title === "Pareto by World") {
+                document.getElementById("submenuLink1").href = "https://www.google.com";
+            } else if (title === "Bazzar by Brand") {
+                document.getElementById("submenuLink1").href = "https://www.facebook.com";
+            }
             document.getElementById("subMenu").style.display = "block";
         }
         function closeMenu() {
