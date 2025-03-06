@@ -82,6 +82,16 @@
             font-size: 18px;
             text-align: center;
         }
+        .sub-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            text-align: center;
+        }
+        .sub-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
         .close-menu {
             position: absolute;
             top: 10px;
@@ -108,13 +118,13 @@
         <h3>INTERNAL REPORT</h3>
         <button onclick="logout()" style="margin-bottom: 20px;">Logout</button>
         <div class="menu-container" id="menuContainer">
-            <div class="menu-item" onclick="openMenu(event, 'paretoMenu', 'Pareto by World')">Pareto by World</div>
-            <div class="menu-item" onclick="openMenu(event, 'bazzarMenu', 'Bazzar by Brand')">Bazzar by Brand</div>
-            <div class="menu-item" onclick="openMenu(event, 'salesMenu', 'Sales Person')">Sales Person</div>
+            <div class="menu-item" onclick="openMenu(event, 'Pareto by World')">Pareto by World</div>
+            <div class="menu-item" onclick="openMenu(event, 'Bazzar by Brand')">Bazzar by Brand</div>
+            <div class="menu-item" onclick="openMenu(event, 'Sales Person')">Sales Person</div>
         </div>
     </div>
     
-    <div id="subMenu" class="sub-menu" onclick="event.stopPropagation()">
+    <div id="subMenu" class="sub-menu">
         <span class="close-menu" onclick="closeMenu()">&times;</span>
         <h2 id="menuTitle"></h2>
         <a href="#">Januari</a>
@@ -129,7 +139,6 @@
             if (username === "MDS362P" && password === "362Matahar!") {
                 document.getElementById("loginPage").style.display = "none";
                 document.getElementById("mainPage").style.display = "block";
-                document.getElementById("menuContainer").style.display = "flex";
                 localStorage.setItem("loggedIn", true);
                 setTimeout(logout, 30 * 60 * 1000);
             } else {
@@ -144,10 +153,9 @@
         if (localStorage.getItem("loggedIn")) {
             document.getElementById("loginPage").style.display = "none";
             document.getElementById("mainPage").style.display = "block";
-            document.getElementById("menuContainer").style.display = "flex";
             setTimeout(logout, 30 * 60 * 1000);
         }
-        function openMenu(event, menuId, title) {
+        function openMenu(event, title) {
             document.getElementById("menuTitle").innerText = title;
             document.getElementById("subMenu").style.display = "block";
         }
@@ -155,7 +163,7 @@
             document.getElementById("subMenu").style.display = "none";
         }
         document.body.addEventListener("click", function(event) {
-            if (!document.getElementById("subMenu").contains(event.target)) {
+            if (!document.getElementById("subMenu").contains(event.target) && !event.target.classList.contains("menu-item")) {
                 closeMenu();
             }
         });
