@@ -260,7 +260,6 @@
                 
                 Monitoring</div>
         </div>
-    </div>
     
     <div id="subMenu" class="sub-menu">
         <span class="close-menu" onclick="closeMenu()">&times;</span>
@@ -312,6 +311,8 @@
         <div class="menu-item"><a href="https://docs.google.com/spreadsheets/d/1oNv_QKCZNmT3p2_bO5_jjpxbS_fe0MbyrwHc3nCuWc8/edit?usp=sharing" style="color:white; text-decoration:none;"><i class=""></i> Sales By Puchases / Backup OBBIE </a></div>
         <div class="menu-item"><a href="https://linktr.ee/District_BAT" style="color:white; text-decoration:none;"><i class=""></i> District BAT </a></div>
     </div>
+    
+    </div>
     <button onclick="logout()" style="padding: 5px; margin-top: 20px; margin-bottom: 20px;">Logout</button>
     <script>
         function login() {
@@ -328,6 +329,7 @@
         }
         function logout() {
             localStorage.removeItem("loggedIn");
+            document.getElementById("mainPage").style.display = "none";
             document.getElementById("mainPage").style.display = "none";
             document.getElementById("loginPage").style.display = "flex";
         }
