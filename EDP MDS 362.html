@@ -144,9 +144,29 @@
         -webkit-background-clip: text;
     -    webkit-text-fill-color: transparent;
         }
+        .frame-container {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            background: red;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2c/Batik_Kawung.png');
+            background-size: cover;
+            background-repeat: repeat;
+            z-index: 999;
+        }
+        .left-frame {
+            left: 0;
+        }
+        .right-frame {
+            right: 0;
+        }
     </style>
 </head>
 <body>
+    <div class="frame-container left-frame"></div>
+    <div class="frame-container right-frame"></div>
+    
     <div class="login-container" id="loginPage">
         <div class="login-box">
             <h2>Login</h2>
