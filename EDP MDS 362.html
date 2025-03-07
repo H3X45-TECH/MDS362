@@ -281,7 +281,7 @@
         function login() {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            if (username === "MDS362P" && password === "362Matahar!") {
+            if (username === "MDS362P" && password === "362Matahari!") {
                 document.getElementById("loginPage").style.display = "none";
                 document.getElementById("mainPage").style.display = "block";
                 localStorage.setItem("loggedIn", true);
@@ -305,58 +305,63 @@
             if (title === "Pareto by World") {
                 document.getElementById("submenuLink1").href = "https://www.google.com";
                 document.getElementById("submenuLink2").href = "https://www.google.com";
-                document.getElementById("submenuLink3").href = "https://www.google.com";
-                document.getElementById("submenuLink4").href = "https://www.google.com";
-                document.getElementById("submenuLink5").href = "https://www.google.com";
-                document.getElementById("submenuLink6").href = "https://www.google.com";
-                document.getElementById("submenuLink7").href = "https://www.google.com";
-                document.getElementById("submenuLink8").href = "https://www.google.com";
-                document.getElementById("submenuLink9").href = "https://www.google.com";
-                document.getElementById("submenuLink10").href = "https://www.google.com";
-                document.getElementById("submenuLink11").href = "https://www.google.com";
-                document.getElementById("submenuLink12").href = "https://www.google.com";
+                document.getElementById("submenuLink3").href = "#";
+                document.getElementById("submenuLink4").href = "#";
+                document.getElementById("submenuLink5").href = "#";
+                document.getElementById("submenuLink6").href = "#";
+                document.getElementById("submenuLink7").href = "#";
+                document.getElementById("submenuLink8").href = "#";
+                document.getElementById("submenuLink9").href = "#";
+                document.getElementById("submenuLink10").href = "#";
+                document.getElementById("submenuLink11").href = "#";
+                document.getElementById("submenuLink12").href = "#";
             } else if (title === "Bazzar by Brand") {
                 document.getElementById("submenuLink1").href = "https://www.facebook.com";
                 document.getElementById("submenuLink2").href = "https://www.google.com";
                 document.getElementById("submenuLink3").href = "https://www.google.com";
-                document.getElementById("submenuLink4").href = "https://www.google.com";
-                document.getElementById("submenuLink5").href = "https://www.google.com";
-                document.getElementById("submenuLink6").href = "https://www.google.com";
-                document.getElementById("submenuLink7").href = "https://www.google.com";
-                document.getElementById("submenuLink8").href = "https://www.google.com";
-                document.getElementById("submenuLink9").href = "https://www.google.com";
-                document.getElementById("submenuLink10").href = "https://www.google.com";
-                document.getElementById("submenuLink11").href = "https://www.google.com";
-                document.getElementById("submenuLink12").href = "https://www.google.com";
+                document.getElementById("submenuLink4").href = "#";
+                document.getElementById("submenuLink5").href = "#";
+                document.getElementById("submenuLink6").href = "#";
+                document.getElementById("submenuLink7").href = "#";
+                document.getElementById("submenuLink8").href = "#";
+                document.getElementById("submenuLink9").href = "#";
+                document.getElementById("submenuLink10").href = "#";
+                document.getElementById("submenuLink11").href = "#";
+                document.getElementById("submenuLink12").href = "#";
             } else if (title === "Sales Person") {
                 document.getElementById("submenuLink1").href = "https://www.twitter.com";
                 document.getElementById("submenuLink2").href = "https://www.google.com";
                 document.getElementById("submenuLink3").href = "https://www.google.com";
-                document.getElementById("submenuLink4").href = "https://www.google.com";
-                document.getElementById("submenuLink5").href = "https://www.google.com";
-                document.getElementById("submenuLink6").href = "https://www.google.com";
-                document.getElementById("submenuLink7").href = "https://www.google.com";
-                document.getElementById("submenuLink8").href = "https://www.google.com";
-                document.getElementById("submenuLink9").href = "https://www.google.com";
-                document.getElementById("submenuLink10").href = "https://www.google.com";
-                document.getElementById("submenuLink11").href = "https://www.google.com";
-                document.getElementById("submenuLink12").href = "https://www.google.com";
+                document.getElementById("submenuLink4").href = "#";
+                document.getElementById("submenuLink5").href = "#";
+                document.getElementById("submenuLink6").href = "#";
+                document.getElementById("submenuLink7").href = "#";
+                document.getElementById("submenuLink8").href = "#";
+                document.getElementById("submenuLink9").href = "#";
+                document.getElementById("submenuLink10").href = "#";
+                document.getElementById("submenuLink11").href = "#";
+                document.getElementById("submenuLink12").href = "#";
             } else if (title === "Unusual Activity") {
                 document.getElementById("submenuLink1").href = "https://docs.google.com/spreadsheets/d/1hRW9S2ZAv1taf9t8DS8YqetGSs6l9Hg5/edit?usp=sharing&ouid=113852778486602352811&rtpof=true&sd=true";
                 document.getElementById("submenuLink2").href = "https://www.google.com";
                 document.getElementById("submenuLink3").href = "https://www.google.com";
-                document.getElementById("submenuLink4").href = "https://www.google.com";
-                document.getElementById("submenuLink5").href = "https://www.google.com";
-                document.getElementById("submenuLink6").href = "https://www.google.com";
-                document.getElementById("submenuLink7").href = "https://www.google.com";
-                document.getElementById("submenuLink8").href = "https://www.google.com";
-                document.getElementById("submenuLink9").href = "https://www.google.com";
-                document.getElementById("submenuLink10").href = "https://www.google.com";
-                document.getElementById("submenuLink11").href = "https://www.google.com";
-                document.getElementById("submenuLink12").href = "https://www.google.com";
+                document.getElementById("submenuLink4").href = "#";
+                document.getElementById("submenuLink5").href = "#";
+                document.getElementById("submenuLink6").href = "#";
+                document.getElementById("submenuLink7").href = "#";
+                document.getElementById("submenuLink8").href = "#";
+                document.getElementById("submenuLink9").href = "#";
+                document.getElementById("submenuLink10").href = "#";
+                document.getElementById("submenuLink11").href = "#";
+                document.getElementById("submenuLink12").href = "#";
             }
             document.getElementById("subMenu").style.display = "block";
         }
+
+        function closeMenu() {
+            document.getElementById("subMenu").style.display = "none";
+        }
+        
         function openMonitoring(event, title) {
             document.getElementById("menuTitle").innerText = title;
             if (title === "Monitoring") {
@@ -370,15 +375,19 @@
         }
 
         function closeMonitoring() {
-            document.getElementById("subMenu").style.display = "none";
+            document.getElementById("subMonitoring").style.display = "none";
         }
         
-        function closeMenu() {
-            document.getElementById("subMenu").style.display = "none";
-        }
+        
         document.body.addEventListener("click", function(event) {
             if (!document.getElementById("subMenu").contains(event.target) && !event.target.classList.contains("menu-item")) {
                 closeMenu();
+            }
+        });
+
+         document.body.addEventListener("click", function(event) {
+            if (!document.getElementById("subMonitoring").contains(event.target) && !event.target.classList.contains("menu-item")) {
+                closeMonitoring();
             }
         });
     </script>
