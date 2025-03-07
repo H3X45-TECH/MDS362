@@ -29,7 +29,7 @@
             text-align: center;
         }
         .login-box input {
-            width: 100%;
+            width: 70%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
@@ -137,6 +137,13 @@
             color: white;
             cursor: pointer;
         }
+        .gradient-text {
+        font-size: 2em; /* Sesuaikan ukuran */
+        font-weight: bold;
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        -webkit-background-clip: text;
+    -    webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -151,9 +158,8 @@
     </div>
     
     <div id="mainPage" style="display: none;">
-        <h1>MATAHARI 362 TANJUNGPINANG CITY CENTRE</h1>
-        <h3>INTERNAL REPORT</h3>
-        <button onclick="logout()" style="margin-bottom: 20px;">Logout</button>
+        <h1 class="gradient-text">MATAHARI 362 TANJUNGPINANG CITY CENTRE</h1>
+        <h3>Internal Report</h3>
         <div class="menu-container" id="menuContainer">
             <div class="menu-item" onclick="openMenu(event, 'Pareto by World')">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -281,7 +287,7 @@
         <div class="menu-item"><a href="https://docs.google.com/spreadsheets/d/1oNv_QKCZNmT3p2_bO5_jjpxbS_fe0MbyrwHc3nCuWc8/edit?usp=sharing" style="color:white; text-decoration:none;"><i class=""></i> Sales By Puchases / Backup OBBIE </a></div>
         <div class="menu-item"><a href="https://linktr.ee/District_BAT" style="color:white; text-decoration:none;"><i class=""></i> District BAT </a></div>
     </div>
-    
+    <button onclick="logout()" style="margin-bottom: 20px;">Logout</button>
     <script>
         function login() {
             const username = document.getElementById("username").value;
