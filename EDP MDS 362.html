@@ -363,20 +363,21 @@
         }
         
         function openMonitoring(event, title) {
-            document.getElementById("menuTitle").innerText = title;
-            if (title === "Monitoring") {
-                document.getElementById("submenuMonitoring1").href = "https://docs.google.com/spreadsheets/d/1ogFrv41xCHW0_LvHN8Gvec7p6Z6rbbDi/edit?usp=sharing&rtpof=true&sd=true";
-                document.getElementById("submenuMonitoring2").href = "#";
-                document.getElementById("submenuMonitoring3").href = "#";
-                document.getElementById("submenuMonitoring4").href = "#";
-                document.getElementById("submenuMonitoring5").href = "#";
-                document.getElementById("submenuMonitoring6").href = "#";
-            }
-        }
+    document.getElementById("menuTitle").innerText = title;
+    document.getElementById("subMonitoring").style.display = "block"; // Menampilkan submenu
 
-        function closeMonitoring() {
-            document.getElementById("subMonitoring").style.display = "none";
-        }
+    if (title === "Monitoring") {
+        document.getElementById("submenuMonitoring1").href = "https://docs.google.com/spreadsheets/d/1ogFrv41xCHW0_LvHN8Gvec7p6Z6rbbDi/edit?usp=sharing&rtpof=true&sd=true";
+        document.getElementById("submenuMonitoring2").href = "#";
+        document.getElementById("submenuMonitoring3").href = "#";
+        document.getElementById("submenuMonitoring4").href = "#";
+        document.getElementById("submenuMonitoring5").href = "#";
+        document.getElementById("submenuMonitoring6").href = "#";
+    }
+}
+    function closeMonitoring() {
+    document.getElementById("subMonitoring").style.display = "none";
+}
         
         
         document.body.addEventListener("click", function(event) {
