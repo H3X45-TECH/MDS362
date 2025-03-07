@@ -77,7 +77,26 @@
             color: white;
             z-index: 9999;
         }
+        .sub-monitoring {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 300px;
+            background: rgba(0, 0, 0, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            z-index: 9999;
+        }
         .sub-menu h2 {
+            margin-top: 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        .sub-monitoring h2 {
             margin-top: 0;
             font-size: 18px;
             text-align: center;
@@ -89,10 +108,28 @@
             padding: 5px;
             text-align: center;
         }
+        .sub-monitoring a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            text-align: center;
+        }
         .sub-menu a:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
+        .sub-monitoring a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
         .close-menu {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .close-monitoring {
             position: absolute;
             top: 10px;
             right: 15px;
@@ -174,7 +211,9 @@
 </svg>
                 
                 Unusual Activity</div>
-            <div class="menu-item" onclick="openMenu(event, 'Monitoring')">
+            
+            
+            <div class="menu-item" onclick="openMonitoring(event, 'Monitoring')">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Layar Monitor -->
     <rect x="3" y="4" width="18" height="12" stroke="white" stroke-width="2" fill="none" rx="2"/>
@@ -209,18 +248,33 @@
         <a id="submenuLink12" href="#">Desember</a>
     </div>
 
-  <h3 style="padding-top: 50px;">External Links</h3>
+    <div id="subMonitoring" class="sub-monitoring">
+        <span class="close-monitoring" onclick="closeMonitoring()">&times;</span>
+        <h2 id="menuTitle"></h2>
+        <a id="submenuMonitoring1" href="#">Produk Festive Lebaran</a>
+        <a id="submenuMonitoring2" href="#"></a>
+        <a id="submenuMonitoring3" href="#"></a>
+        <a id="submenuMonitoring4" href="#"></a>
+        <a id="submenuMonitoring5" href="#"></a>
+        <a id="submenuMonitoring6" href="#"></a>
+    </div>
+
+  <h3 style="padding-top: 50px;">Laporan Malam</h3>
     <div class="menu-container" style="z-index: 0;">
-        <div class="menu-item"><a href="https://google.com" style="color:white; text-decoration:none;"><i class="fas fa-search"></i>Store Performance</a></div>
-        <div class="menu-item"><a href="https://facebook.com" style="color:white; text-decoration:none;"><i class="fab fa-facebook"></i>Hourly Sales</a></div>
-        <div class="menu-item"><a href="https://linkedin.com" style="color:white; text-decoration:none;"><i class="fab fa-linkedin"></i>49D</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i>Sales Chanel/Table</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
-        <div class="menu-item"><a href="https://twitter.com" style="color:white; text-decoration:none;"><i class="fab fa-twitter"></i> Twitter</a></div>
+        <div class="menu-item"><a href="https://mataharimds-my.sharepoint.com/:x:/r/personal/m002996_matahari_com/Documents/Store%20Performance%20Form%20Maret%20%202025.xlsx?d=w07e901ee8257443fb1b0c3e4f43481f2&csf=1&web=1&e=tCHi2w&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wNjAwLTAwMDAwMDAwMDAwMH0" style="color:white; text-decoration:none;"><i class=""></i>Store Performance</a></div>
+        <div class="menu-item"><a href="https://mataharimds-my.sharepoint.com/:x:/r/personal/m005711_matahari_com/Documents/Form%20Sales%20Hourly_Mar%202025.xlsx?d=wb681b47b01344baea3ca158f2c56c544&csf=1&web=1&e=AWGi3F" style="color:white; text-decoration:none;"><i class=""></i>Sales Hourly</a></div>
+        <div class="menu-item"><a href="https://mataharimds-my.sharepoint.com/:x:/r/personal/m005711_matahari_com/Documents/CCR%20Report%20-%20Mar%202025.xlsx?d=wa5d672560e9340449e9b5c0ad56c3721&csf=1&web=1&e=La6deB" style="color:white; text-decoration:none;"><i class=""></i>CCR Report</a></div>
+        <div class="menu-item"><a href="https://mataharimds-my.sharepoint.com/:x:/r/personal/m002996_matahari_com/Documents/Update%20Sales%2049%20D%20Lebaran%202025.xlsx?d=wa5f77e5fe07d4b1eb67fdc5154f15c70&csf=1&web=1&e=2fkqsG&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMTAwLTAwMDAwMDAwMDAwMH0" style="color:white; text-decoration:none;"><i class=""></i>Update Sales 49D Lebaran</a></div>
+        <div class="menu-item"><a href="https://mataharimds-my.sharepoint.com/:x:/r/personal/m102413_matahari_com/Documents/EAST%20JAVA%202/MAR%202025/Rekap%20sales%20Shop%20%26%20Talk%20Mar%202025.xlsx?d=w6115aa50779f4f65a5f5ba91b6f8ce0f&csf=1&web=1&e=qFhFUn" style="color:white; text-decoration:none;"><i class=""></i>Rekap Sales Shop&Talk</a></div>
+        <div class="menu-item"><a href="https://docs.google.com/spreadsheets/d/1CLsnGOMg8Dzdm3YLRsS4yqPh2jj2ftQEA4YR8WMeCj0/edit?usp=sharing" style="color:white; text-decoration:none;"><i class=""></i>Daily Sales District BAT</a></div>
+    </div>
+    <h3 style="padding-top: 50px;">Other External Links</h3>
+    <div class="menu-container" style="z-index: 0;">
+        <div class="menu-item"><a href="https://auditreport.matahari.id/" style="color:white; text-decoration:none;"><i class=""></i>MDS Unusual Report</a></div>
+        <div class="menu-item"><a href="https://docs.google.com/spreadsheets/d/1dJyF3AO6zCH-in0Y4TqJ2mnAEZDYK4DzSevkIsiScrs/edit?usp=sharing" style="color:white; text-decoration:none;"><i class=""></i> Sales Chanel / Table </a></div>
+        <div class="menu-item"><a href="https://docs.google.com/spreadsheets/d/1TlEl8i0IVMPku_vTKwX0hcfY6wTBKLsH5IaaLwTdmNk/edit?usp=sharing" style="color:white; text-decoration:none;"><i class=""></i> DataBase 49D Lebaran 2025 </a></div>
+        <div class="menu-item"><a href="https://docs.google.com/spreadsheets/d/1G8FedtP64U9Q8jl3qMb-lHPSYkRCbJMHBGzaa6H-CqA/edit?usp=sharing" style="color:white; text-decoration:none;"><i class=""></i> Data Aging </a></div>
+        <div class="menu-item"><a href="https://linktr.ee/District_BAT" style="color:white; text-decoration:none;"><i class=""></i> District BAT </a></div>
     </div>
     
     <script>
@@ -300,22 +354,25 @@
                 document.getElementById("submenuLink10").href = "https://www.google.com";
                 document.getElementById("submenuLink11").href = "https://www.google.com";
                 document.getElementById("submenuLink12").href = "https://www.google.com";
-            } else if (title === "Monitoring") {
-                document.getElementById("submenuLink1").href = "https://www.samehadaku.com";
-                document.getElementById("submenuLink2").href = "https://www.google.com";
-                document.getElementById("submenuLink3").href = "https://www.google.com";
-                document.getElementById("submenuLink4").href = "https://www.google.com";
-                document.getElementById("submenuLink5").href = "https://www.google.com";
-                document.getElementById("submenuLink6").href = "https://www.google.com";
-                document.getElementById("submenuLink7").href = "https://www.google.com";
-                document.getElementById("submenuLink8").href = "https://www.google.com";
-                document.getElementById("submenuLink9").href = "https://www.google.com";
-                document.getElementById("submenuLink10").href = "https://www.google.com";
-                document.getElementById("submenuLink11").href = "https://www.google.com";
-                document.getElementById("submenuLink12").href = "https://www.google.com";
             }
             document.getElementById("subMenu").style.display = "block";
         }
+        function openMonitoring(event, title) {
+            document.getElementById("menuTitle").innerText = title;
+            if (title === "Monitoring") {
+                document.getElementById("submenuMonitoring1").href = "https://docs.google.com/spreadsheets/d/1ogFrv41xCHW0_LvHN8Gvec7p6Z6rbbDi/edit?usp=sharing&rtpof=true&sd=true";
+                document.getElementById("submenuMonitoring2").href = "#";
+                document.getElementById("submenuMonitoring3").href = "#";
+                document.getElementById("submenuMonitoring4").href = "#";
+                document.getElementById("submenuMonitoring5").href = "#";
+                document.getElementById("submenuMonitoring6").href = "#";
+            }
+        }
+
+        function closeMonitoring() {
+            document.getElementById("subMenu").style.display = "none";
+        }
+        
         function closeMenu() {
             document.getElementById("subMenu").style.display = "none";
         }
